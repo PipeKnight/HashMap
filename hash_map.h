@@ -2,7 +2,8 @@
 #include <stdexcept>
 #include <vector>
 
-template<class KeyType, class ValueType, class Hash = std::hash<KeyType>> class HashMap {
+template<class KeyType, class ValueType, class Hash = std::hash<KeyType>>
+class HashMap {
 public:
     using iterator = typename std::list<std::pair<const KeyType, ValueType>>::iterator;
     using const_iterator = typename std::list<std::pair<const KeyType, ValueType>>::const_iterator;
@@ -13,7 +14,7 @@ private:
     size_t real_sz = 0;
     size_t buckets = 0;
     std::vector<size_t> sz;
-    const int START = 4;
+    static constexpr int START = 4;
 public:
     Hash hash_function() const {
         return hash;
